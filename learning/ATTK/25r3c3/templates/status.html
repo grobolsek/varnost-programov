@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Status</h1>
+    {% if status_id is none %}
+        <p>Invalid status id.</p>
+    {% else %}
+        <p>Processing status: {{ status["state"] }}</p>
+        {% if status["flag"] %}
+            <p>Flag: {{ status["flag"] }}</p>
+        {% endif %}
+        <ul>
+        {% for result in status["results"] %}
+            <li>
+                {{ result["test"] }}
+                {{ result["status"] }}
+                {% if result["reason"] %} ({{ result["reason"] }}) {% endif %}
+            </li>
+        {% endfor %}
+        </ul>
+        {% if not status["done"] %}
+            <script>
+                setTimeout(function() {
+                    location.reload();
+                }, 2000);
+            </script>
+        {% endif %}
+    {% endif %}
+{% endblock %}

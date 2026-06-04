@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Status</h1>
+    {% if status %} 
+        <ul>
+            {% for key, item in status.items() %}
+                <li><a href="/status/{{ key }}">{{ key }}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No uploads.</p>
+    {% endif %}
+{% endblock %}

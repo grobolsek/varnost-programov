@@ -1,0 +1,72 @@
+{
+  "src_name": "app.c",
+  "exec_name": "app",
+  "build": {
+    "cmd": [
+      "gcc",
+      "-o",
+      "app",
+      "-std=c99",
+      "app.c"
+    ],
+    "guard": [
+      "landrun",
+      "--add-exec",
+      "--ldd",
+      "--env",
+      "PATH",
+      "--rw",
+      ".",
+      "--rox",
+      "/usr",
+      "--rw",
+      "/tmp",
+      "--"
+    ]
+  },
+  "run": {
+    "cmd": [
+      "./app"
+    ],
+    "guard": [
+      "landrun",
+      "--add-exec",
+      "--ldd",
+      "--rw",
+      ".",
+      "--rox",
+      "/usr",
+      "--"
+    ]
+  },
+  "inputs": {
+    "folder": "./inputs",
+    "tests": [
+      {
+        "name": "0_sanitycheck_01",
+        "expect_status": 0,
+        "expect_stdout": true
+      },
+      {
+        "name": "0_sanitycheck_02",
+        "expect_status": 0,
+        "expect_stdout": true
+      },
+			{
+				"name": "1_invalid_01",
+				"expect_status": 1,
+				"expect_stdout": false
+      },
+			{
+				"name": "1_invalid_02",
+				"expect_status": 1,
+				"expect_stdout": false
+      },
+			{
+				"name": "1_invalid_03",
+				"expect_status": 1,
+				"expect_stdout": false
+			}
+    ]
+  }
+}

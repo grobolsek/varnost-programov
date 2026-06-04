@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Upload</h1>
+    <form method="post" enctype="multipart/form-data" action="/">
+        <input type="file" name="file" required>
+        <input type="submit" value="Upload">
+    </form>
+    <p>
+        Use your knowledge of defensive programing to harden the program against malicious input.
+        In the end it should still perform the same task while exiting with code 1 on bad input or issues that might come up.
+    </p>
+    {% if error %}<p style="color: red;">{{ error }}</p>{% endif %}
+    <div class="hint">
+        <p>Build: <span class="hint-code">{{ " ".join(config["build"]["cmd"]) }}</span></p>
+        <p>Run: <span class="hint-code">{{ " ".join(config["run"]["cmd"]) }}</span></p>
+    </div>
+{% endblock %}

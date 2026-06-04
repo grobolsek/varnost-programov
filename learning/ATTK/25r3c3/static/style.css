@@ -1,0 +1,51 @@
+body {
+  width: 40%;
+  min-width: 400px;
+  margin: auto;
+
+  font-family: roboto, sans-serif;
+}
+
+nav {
+  margin-top: 1em;
+  display: flex;
+  justify-content: left;
+}
+
+nav>a {
+  padding: 0.5em 1em;
+  margin-right: 1em;
+  background-color: #ddd;
+  color: #444;
+  text-decoration: capitalize;
+}
+
+nav>a:hover {
+  text-decoration: underline;
+}
+
+nav>a.active {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+main {
+  margin-top: 2em;
+}
+
+input {
+  display: block;
+  margin: 0 0 1em 2em;
+}
+
+.hint {
+  margin-top: 3em;
+  font-size: 0.9em;
+  color: #777;
+}
+
+.hint-code {
+  font-family: monospace;
+  background-color: #eee;
+  padding: 0.2em 0.5em;
+}
